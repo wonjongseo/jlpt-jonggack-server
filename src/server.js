@@ -1,21 +1,25 @@
 import express from "express";
 import morgan from "morgan";
 import {
-  jsonN1Grammars,
-  jsonN1Kangis,
   jsonN1Words,
-  jsonN2Grammars,
-  jsonN2Kangis,
   jsonN2Words,
-  jsonN3Grammars,
-  jsonN3Kangis,
   jsonN3Words,
-  jsonN4Kangis,
   jsonN4Words,
-  jsonN5Kangis,
   jsonN5Words,
+} from "./jlpt_datas";
+import {
+  jsonN1Kangis,
+  jsonN2Kangis,
+  jsonN3Kangis,
+  jsonN4Kangis,
+  jsonN5Kangis,
   jsonN6Kangis,
-} from "./datas";
+} from "./kangi_datas";
+import {
+  jsonN1Grammars,
+  jsonN2Grammars,
+  jsonN3Grammars,
+} from "./grammar_datas";
 
 const app = express();
 
@@ -25,9 +29,8 @@ app.get("/", (req, res, next) => {
   const { data } = req.query;
   //   console.log(jsonN1Words);
 
-  console.log("Calle2");
+  console.log("----Called----");
   console.log(data);
-  console.log("Called");
   var result;
   if (data === "N1-voca") {
     result = jsonN1Words;
