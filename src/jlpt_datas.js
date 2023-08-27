@@ -28165,7 +28165,7 @@ export const jsonN3Words =
       {
         word: "馬",
         yomikata: "うま",
-        mean: "1. 말\n2. 아래쪽이 벌어진 네 발 달린 발판\n3. ‘桂馬·成角 ’의 약칭",
+        mean: "1. 말\n2. 아래쪽이 벌어진 네 발 달린 발판",
         headTitle: "챕터1",
       },
       {
