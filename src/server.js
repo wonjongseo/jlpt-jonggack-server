@@ -24,6 +24,74 @@ import {
 const app = express();
 
 app.use(morgan("dev"));
+app.get("/search", (req, res) => {
+  const { query, category } = req.query;
+  console.log("query: ", category);
+
+  const aa = "恋人";
+
+  console.log("aa.includes(query): ", aa.includes(query));
+
+  const result = [];
+  for (let i = 0; i < jsonN1Words.length; i++) {
+    for (let j = 0; j < jsonN1Words[i].length; j++) {
+      if (jsonN1Words[i][j].word.includes(query)) {
+        result.push(jsonN1Words[i][j]);
+      }
+      if (jsonN1Words[i][j].yomikata.includes(query)) {
+        result.push(jsonN1Words[i][j]);
+      }
+    }
+  }
+  console.log("1");
+  for (let i = 0; i < jsonN2Words.length; i++) {
+    for (let j = 0; j < jsonN2Words[i].length; j++) {
+      if (jsonN2Words[i][j].word.includes(query)) {
+        result.push(jsonN2Words[i][j]);
+      }
+      if (jsonN2Words[i][j].yomikata.includes(query)) {
+        result.push(jsonN2Words[i][j]);
+      }
+    }
+  }
+  console.log("2");
+  for (let i = 0; i < jsonN3Words.length; i++) {
+    for (let j = 0; j < jsonN3Words[i].length; j++) {
+      if (jsonN3Words[i][j].word.includes(query)) {
+        result.push(jsonN3Words[i][j]);
+      }
+      if (jsonN3Words[i][j].yomikata.includes(query)) {
+        result.push(jsonN3Words[i][j]);
+      }
+    }
+  }
+  console.log("3");
+  for (let i = 0; i < jsonN4Words.length; i++) {
+    for (let j = 0; j < jsonN4Words[i].length; j++) {
+      if (jsonN4Words[i][j].word.includes(query)) {
+        result.push(jsonN4Words[i][j]);
+      }
+      if (jsonN4Words[i][j].yomikata.includes(query)) {
+        result.push(jsonN4Words[i][j]);
+      }
+    }
+  }
+  console.log("4");
+  for (let i = 0; i < jsonN5Words.length; i++) {
+    for (let j = 0; j < jsonN5Words[i].length; j++) {
+      if (jsonN5Words[i][j].word.includes(query)) {
+        result.push(jsonN5Words[i][j]);
+      }
+      if (jsonN5Words[i][j].yomikata.includes(query)) {
+        result.push(jsonN5Words[i][j]);
+      }
+    }
+  }
+
+  console.log("5");
+  console.log("result: ", result);
+  return res.json({ data: result });
+});
 
 app.get("/", (req, res, next) => {
   const { data } = req.query;
